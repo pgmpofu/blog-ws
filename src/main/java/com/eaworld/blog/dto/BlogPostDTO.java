@@ -1,5 +1,7 @@
 package com.eaworld.blog.dto;
 
+import com.eaworld.blog.model.Author;
+
 /**
  *
  * @author Patience Mpofu
@@ -11,6 +13,7 @@ public class BlogPostDTO {
 	private long id;
 	private String title;
 	private String blogContent;
+	private Author author;
 
     /**
      *
@@ -58,6 +61,14 @@ public class BlogPostDTO {
      */
     public void setId(long id) {
 		this.id = id;
+	}
+
+	public Author getAuthor() {
+		return author;
+	}
+
+	public void setAuthor(Author author) {
+		this.author = author;
 	}
 
 }

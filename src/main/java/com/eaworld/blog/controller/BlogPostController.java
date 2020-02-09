@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.eaworld.blog.dto.AuthorDTO;
 import com.eaworld.blog.dto.BlogPostDTO;
 import com.eaworld.blog.model.request.BlogPostRequest;
 import com.eaworld.blog.model.response.BlogPostResponse;
@@ -43,6 +44,7 @@ public class BlogPostController {
 		BlogPostResponse blogPostResponse = new BlogPostResponse();
 		BlogPostDTO blogPostDTO = new BlogPostDTO();
 		BeanUtils.copyProperties(blogPostRequest, blogPostDTO);
+		AuthorDTO authorDTO = new AuthorDTO(blogPostRequest.getAuthor().getFirstName(), blogPostRequest.getAuthor().getLastName());
 		BlogPostDTO createdDTO = blogPostService.createBlogPost(blogPostDTO);
 		BeanUtils.copyProperties(createdDTO, blogPostResponse);
 		return blogPostResponse;

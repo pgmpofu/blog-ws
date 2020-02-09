@@ -1,5 +1,7 @@
 package com.eaworld.blog.model.request;
 
+import com.eaworld.blog.model.Author;
+
 /**
  *
  * @author Patience Mpofu
@@ -12,6 +14,7 @@ public class BlogPostRequest {
 	private String id;
 	private String title;
 	private String blogContent;
+	private Author author;
 
 	public String getId() {
 		return id;
@@ -35,6 +38,14 @@ public class BlogPostRequest {
 
 	public void setBlogContent(String blogContent) {
 		this.blogContent = blogContent;
+	}
+
+	public Author getAuthor() {
+		return author;
+	}
+
+	public void setAuthor(Author author) {
+		this.author = author;
 	}
 
 }

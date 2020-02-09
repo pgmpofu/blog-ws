@@ -1,8 +1,11 @@
 package com.eaworld.blog.model;
 
+import java.util.List;
+
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
 
 @Entity(name = "authors")
 public class Author {
@@ -12,6 +15,17 @@ public class Author {
 	private long id;
 	private String firstName;
 	private String lastName;
+
+	@OneToMany
+	private List<BlogPost> blogPosts;
+
+	public List<BlogPost> getBlogPosts() {
+		return blogPosts;
+	}
+
+	public void setBlogPosts(List<BlogPost> blogPosts) {
+		this.blogPosts = blogPosts;
+	}
 
 	public long getId() {
 		return id;
