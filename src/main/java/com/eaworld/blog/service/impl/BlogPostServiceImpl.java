@@ -1,4 +1,4 @@
-package com.eaworld.blog.services.impl;
+package com.eaworld.blog.service.impl;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -10,9 +10,10 @@ import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
 import com.eaworld.blog.dto.BlogPostDTO;
+import com.eaworld.blog.exception.BlogPostServiceException;
 import com.eaworld.blog.model.BlogPost;
 import com.eaworld.blog.repository.BlogPostRepository;
-import com.eaworld.blog.services.BlogService;
+import com.eaworld.blog.service.BlogPostService;
 
 /**
  *
@@ -20,7 +21,7 @@ import com.eaworld.blog.services.BlogService;
  * @date 08/02/2020 Processes requests for blog posts
  */
 @Service
-public class BlogPostServiceImpl implements BlogService {
+public class BlogPostServiceImpl implements BlogPostService {
 
 	@Autowired
 	BlogPostRepository blogPostRepository;
@@ -33,14 +34,18 @@ public class BlogPostServiceImpl implements BlogService {
 	public List<BlogPostDTO> getBlogPosts(int page, int limit) {
 		List<BlogPostDTO> blogPostDTOs = new ArrayList<BlogPostDTO>();
 		Pageable pageRequest = PageRequest.of(page, limit);
-		List<BlogPost> blogPosts = blogPostRepository.findAll(pageRequest).getContent();
-		blogPosts.stream().map((blogPost) -> {
-			BlogPostDTO blogPostDTO = new BlogPostDTO();
-			BeanUtils.copyProperties(blogPost, blogPostDTO);
-			return blogPostDTO;
-		}).forEachOrdered((blogPostDTO) -> {
-			blogPostDTOs.add(blogPostDTO);
-		});
+		try {
+			List<BlogPost> blogPosts = blogPostRepository.findAll(pageRequest).getContent();
+			blogPosts.stream().map((blogPost) -> {
+				BlogPostDTO blogPostDTO = new BlogPostDTO();
+				BeanUtils.copyProperties(blogPost, blogPostDTO);
+				return blogPostDTO;
+			}).forEachOrdered((blogPostDTO) -> {
+				blogPostDTOs.add(blogPostDTO);
+			});
+		} catch (Exception ex) {
+			throw new BlogPostServiceException();
+		}
 
 		return blogPostDTOs;
 	}
@@ -51,10 +56,14 @@ public class BlogPostServiceImpl implements BlogService {
 	 * @return - Blog Post with the given id
 	 */
 	public BlogPostDTO getBlogPost(Long blogPostId) {
-		BlogPost blogPost = blogPostRepository.findById(blogPostId).get();
-		BlogPostDTO blogPostDTO = new BlogPostDTO();
-		BeanUtils.copyProperties(blogPost, blogPostDTO);
-		return blogPostDTO;
+		try {
+			BlogPost blogPost = blogPostRepository.findById(blogPostId).get();
+			BlogPostDTO blogPostDTO = new BlogPostDTO();
+			BeanUtils.copyProperties(blogPost, blogPostDTO);
+			return blogPostDTO;
+		} catch (Exception ex) {
+			throw new BlogPostServiceException();
+		}
 	}
 
 	/**
@@ -63,11 +72,15 @@ public class BlogPostServiceImpl implements BlogService {
 	 * @return the saved blog post data transfer object
 	 */
 	public BlogPostDTO createBlogPost(BlogPostDTO blogPostDTO) {
-		BlogPost blogPost = new BlogPost();
-		BeanUtils.copyProperties(blogPostDTO, blogPost);
-		BlogPost storedBlogPost = blogPostRepository.save(blogPost);
-		BlogPostDTO storedDTO = new BlogPostDTO();
-		BeanUtils.copyProperties(storedBlogPost, storedDTO);
-		return storedDTO;
+		try {
+			BlogPost blogPost = new BlogPost();
+			BeanUtils.copyProperties(blogPostDTO, blogPost);
+			BlogPost storedBlogPost = blogPostRepository.save(blogPost);
+			BlogPostDTO storedDTO = new BlogPostDTO();
+			BeanUtils.copyProperties(storedBlogPost, storedDTO);
+			return storedDTO;
+		} catch (Exception ex) {
+			throw new BlogPostServiceException();
+		}
 	}
 }

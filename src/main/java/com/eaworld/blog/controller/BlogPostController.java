@@ -16,7 +16,7 @@ import org.springframework.web.bind.annotation.RestController;
 import com.eaworld.blog.dto.BlogPostDTO;
 import com.eaworld.blog.model.request.BlogPostRequest;
 import com.eaworld.blog.model.response.BlogPostResponse;
-import com.eaworld.blog.services.impl.BlogPostServiceImpl;
+import com.eaworld.blog.service.impl.BlogPostServiceImpl;
 
 @RestController
 @RequestMapping("/posts")
