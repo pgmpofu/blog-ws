@@ -3,6 +3,7 @@ package com.eaworld.blog.model;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.ManyToOne;
 
 @Entity(name = "blogPosts")
 public class BlogPost {
@@ -14,6 +15,9 @@ public class BlogPost {
 	private String title;
 
 	private String blogContent;
+        
+        @ManyToOne
+        private Author author;
 
 
 	public long getId() {

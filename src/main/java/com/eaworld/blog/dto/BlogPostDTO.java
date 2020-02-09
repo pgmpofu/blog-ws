@@ -1,32 +1,62 @@
 package com.eaworld.blog.dto;
 
+/**
+ *
+ * @author Patience Mpofu
+ * @date 02/09/2020
+ * Data transfer object for blog posts
+ */
 public class BlogPostDTO {
 
 	private long id;
 	private String title;
 	private String blogContent;
 
-	public String getTitle() {
+    /**
+     *
+     * @return
+     */
+    public String getTitle() {
 		return title;
 	}
 
-	public void setTitle(String title) {
+    /**
+     *
+     * @param title
+     */
+    public void setTitle(String title) {
 		this.title = title;
 	}
 
-	public String getBlogContent() {
+    /**
+     *
+     * @return
+     */
+    public String getBlogContent() {
 		return blogContent;
 	}
 
-	public void setBlogContent(String blogContent) {
+    /**
+     *
+     * @param blogContent
+     */
+    public void setBlogContent(String blogContent) {
 		this.blogContent = blogContent;
 	}
 
-	public long getId() {
+    /**
+     *
+     * @return
+     */
+    public long getId() {
 		return id;
 	}
 
-	public void setId(long id) {
+    /**
+     *
+     * @param id
+     */
+    public void setId(long id) {
 		this.id = id;
 	}
 

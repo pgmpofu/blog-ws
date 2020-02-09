@@ -5,6 +5,11 @@ import org.springframework.stereotype.Repository;
 
 import com.eaworld.blog.model.BlogPost;
 
+/**
+ *
+ * @author Patience Mpofu
+ * @date 02/09/2020
+ */
 @Repository
 public interface BlogPostRepository extends PagingAndSortingRepository<BlogPost, Long>{
 
