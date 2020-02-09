@@ -20,12 +20,21 @@ public class CommentService {
 	@Autowired
 	CommentRepository commentRepository;
 	
-	
-	public Optional<Comment> getComment(Long commentId) {
+    /**
+     *
+     * @param commentId
+     * @return Id of the comment that we are searching for
+     */
+    public Optional<Comment> getComment(Long commentId) {
 		return commentRepository.findById(commentId);
 	}
 	
-	public List<Comment> getComments() {
+    /**
+     *
+     * @param blogId - Get comments associated with the blogId
+     * @return all comments for a blog post
+     */
+    public List<Comment> getComments(Long blogId) {
 		return (List<Comment>) commentRepository.findAll();
 	}
 	

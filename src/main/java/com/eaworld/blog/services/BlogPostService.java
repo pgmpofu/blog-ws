@@ -9,22 +9,41 @@ import org.springframework.stereotype.Service;
 import com.eaworld.blog.model.BlogPost;
 import com.eaworld.blog.repository.BlogPostRepository;
 
-
+/**
+ *
+ * @author Patience Mpofu
+ * @date 08/02/2020
+ * Processes requests for blog posts
+ */
 @Service
 public class BlogPostService {
 	
 	@Autowired
 	BlogPostRepository blogPostRepository;
 	
-	public List<BlogPost> getBlogPosts() {
+    /**
+     *
+     * @return all blog posts
+     */
+    public List<BlogPost> getBlogPosts() {
 		return (List<BlogPost>) blogPostRepository.findAll();
 	}
 	
-	public Optional<BlogPost> getBlogPost(Long blogPostId) {
+    /**
+     *
+     * @param blogPostId - blog post that we are searching for
+     * @return - Blog Post with the given id
+     */
+    public Optional<BlogPost> getBlogPost(Long blogPostId) {
 		return blogPostRepository.findById(blogPostId);
 	}
 	
-	public BlogPost createBlogPost(BlogPost blogPost) {
+    /**
+     *
+     * @param blogPost
+     * @return the saved blog post
+     */
+    public BlogPost createBlogPost(BlogPost blogPost) {
 		return blogPostRepository.save(blogPost);
 	}
 }
