@@ -1,12 +1,20 @@
 package com.eaworld.blog.model.request;
 
-import lombok.Getter;
-import lombok.Setter;
-
-@Getter
-@Setter
 public class CommentRequest {
-	Long blogId;
-	Long commentId;
+	
+	private Long blogId;
+	private Long commentId;
+	public Long getBlogId() {
+		return blogId;
+	}
+	public void setBlogId(Long blogId) {
+		this.blogId = blogId;
+	}
+	public Long getCommentId() {
+		return commentId;
+	}
+	public void setCommentId(Long commentId) {
+		this.commentId = commentId;
+	}
 
 }
