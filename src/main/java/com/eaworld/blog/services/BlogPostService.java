@@ -1,5 +1,6 @@
 package com.eaworld.blog.services;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
@@ -27,8 +28,17 @@ public class BlogPostService {
      *
      * @return all blog posts
      */
-    public List<BlogPost> getBlogPosts() {
-		return (List<BlogPost>) blogPostRepository.findAll();
+    public List<BlogPostDTO> getBlogPosts() {
+    	List<BlogPostDTO> blogPostDTOs = new ArrayList<BlogPostDTO>();
+    	List<BlogPost> blogPosts= (List<BlogPost>) blogPostRepository.findAll();
+		blogPosts.stream().map((blogPost) -> {
+			BlogPostDTO blogPostDTO = new BlogPostDTO();
+			BeanUtils.copyProperties(blogPost, blogPostDTO);
+			return blogPostDTO;
+		}).forEachOrdered((blogPostDTO) -> {
+			blogPostDTOs.add(blogPostDTO);
+		});
+		return blogPostDTOs;
 	}
 	
     /**
@@ -36,8 +46,11 @@ public class BlogPostService {
      * @param blogPostId - blog post that we are searching for
      * @return - Blog Post with the given id
      */
-    public Optional<BlogPost> getBlogPost(Long blogPostId) {
-		return blogPostRepository.findById(blogPostId);
+    public Optional<BlogPostDTO> getBlogPost(Long blogPostId) {
+    	Optional<BlogPost> blogPost =  blogPostRepository.findById(blogPostId);
+    	Optional<BlogPostDTO> blogPostDTO = Optional.of(new BlogPostDTO());
+    	BeanUtils.copyProperties(blogPost, blogPostDTO);
+		return blogPostDTO;
 	}
 	
     /**
