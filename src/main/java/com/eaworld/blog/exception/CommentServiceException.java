@@ -4,7 +4,7 @@ package com.eaworld.blog.exception;
  *
  * @author Patience Mpofu
  * @date 02/09/2020
- * Custom exception class for blog posts
+ * Custom exception class for comments
  */
 public class CommentServiceException extends RuntimeException{
 

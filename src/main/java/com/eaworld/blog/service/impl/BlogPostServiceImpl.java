@@ -19,6 +19,7 @@ import com.eaworld.blog.service.BlogPostService;
  *
  * @author Patience Mpofu
  * @date 08/02/2020 Processes requests for blog posts
+ * Service class for processing comments
  */
 @Service
 public class BlogPostServiceImpl implements BlogPostService {
@@ -31,8 +32,9 @@ public class BlogPostServiceImpl implements BlogPostService {
 	 * @param limit - number of records that we are requesting
 	 * @return all blog posts
 	 */
+        @Override
 	public List<BlogPostDTO> getBlogPosts(int page, int limit) {
-		List<BlogPostDTO> blogPostDTOs = new ArrayList<BlogPostDTO>();
+		List<BlogPostDTO> blogPostDTOs = new ArrayList<>();
 		Pageable pageRequest = PageRequest.of(page, limit);
 		try {
 			List<BlogPost> blogPosts = blogPostRepository.findAll(pageRequest).getContent();
@@ -55,6 +57,7 @@ public class BlogPostServiceImpl implements BlogPostService {
 	 * @param blogPostId - blog post that we are searching for
 	 * @return - Blog Post with the given id
 	 */
+        @Override
 	public BlogPostDTO getBlogPost(Long blogPostId) {
 		try {
 			BlogPost blogPost = blogPostRepository.findById(blogPostId).get();
@@ -71,6 +74,7 @@ public class BlogPostServiceImpl implements BlogPostService {
 	 * @param blogPostDTO - blog post data transfer object
 	 * @return the saved blog post data transfer object
 	 */
+        @Override
 	public BlogPostDTO createBlogPost(BlogPostDTO blogPostDTO) {
 		try {
 			BlogPost blogPost = new BlogPost();
@@ -86,6 +90,8 @@ public class BlogPostServiceImpl implements BlogPostService {
 
 	/**
 	 * 
+     * @param blogPostDTO
+     * @return an updated blog data transfer object
 	 */
 	public BlogPostDTO updateBlogPost(BlogPostDTO blogPostDTO) {
 		try {

@@ -1,40 +1,77 @@
 package com.eaworld.blog.model.request;
 
+/**
+ *
+ * @author Patience Mpofu
+ * @date 02/09/2020
+ */
 public class CommentRequest {
 	private long blogId;
 	private String commentContent;
 	private String authorFirstName;
 	private String authorLastName;
 
-	public String getCommentContent() {
+    /**
+     *
+     * @return comment content
+     */
+    public String getCommentContent() {
 		return commentContent;
 	}
 
-	public void setCommentContent(String commentContent) {
+    /**
+     *
+     * @param commentContent
+     */
+    public void setCommentContent(String commentContent) {
 		this.commentContent = commentContent;
 	}
 
-	public String getAuthorFirstName() {
+    /**
+     *
+     * @return
+     */
+    public String getAuthorFirstName() {
 		return authorFirstName;
 	}
 
-	public void setAuthorFirstName(String authorFirstName) {
+    /**
+     *
+     * @param authorFirstName
+     */
+    public void setAuthorFirstName(String authorFirstName) {
 		this.authorFirstName = authorFirstName;
 	}
 
-	public String getAuthorLastName() {
+    /**
+     *
+     * @return
+     */
+    public String getAuthorLastName() {
 		return authorLastName;
 	}
 
-	public void setAuthorLastName(String authorLastName) {
+    /**
+     *
+     * @param authorLastName
+     */
+    public void setAuthorLastName(String authorLastName) {
 		this.authorLastName = authorLastName;
 	}
 
-	public long getBlogId() {
+    /**
+     *
+     * @return
+     */
+    public long getBlogId() {
 		return blogId;
 	}
 
-	public void setBlogId(long blogId) {
+    /**
+     *
+     * @param blogId
+     */
+    public void setBlogId(long blogId) {
 		this.blogId = blogId;
 	}
 

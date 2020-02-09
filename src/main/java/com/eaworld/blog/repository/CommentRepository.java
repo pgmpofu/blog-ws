@@ -10,6 +10,7 @@ import com.eaworld.blog.model.Comment;
  *
  * @author Patience Mpofu
  * @date 02/09/2020
+ * Repository for comments
  */
 @Repository
 public interface CommentRepository extends PagingAndSortingRepository<Comment, Long>{

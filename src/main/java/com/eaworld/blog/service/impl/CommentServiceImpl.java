@@ -10,6 +10,11 @@ import com.eaworld.blog.model.Comment;
 import com.eaworld.blog.repository.CommentRepository;
 import com.eaworld.blog.service.CommentService;
 
+/**
+ *
+ * @author Patience Mpofu
+ * @date 02/09/2020
+ */
 @Service
 public class CommentServiceImpl implements CommentService {
 	

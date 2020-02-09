@@ -9,6 +9,7 @@ import com.eaworld.blog.model.BlogPost;
  *
  * @author Patience Mpofu
  * @date 02/09/2020
+ * Repository class for blog post data access
  */
 @Repository
 public interface BlogPostRepository extends PagingAndSortingRepository<BlogPost, Long>{
