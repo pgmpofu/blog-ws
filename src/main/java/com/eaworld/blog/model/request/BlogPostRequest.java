@@ -11,7 +11,7 @@ import lombok.Setter;
  */
 @Getter
 @Setter
-public class BlogRequest {
+public class BlogPostRequest {
 	
 	private String id;
 	private String title;

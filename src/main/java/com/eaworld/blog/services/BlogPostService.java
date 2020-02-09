@@ -3,9 +3,11 @@ package com.eaworld.blog.services;
 import java.util.List;
 import java.util.Optional;
 
+import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.eaworld.blog.dto.BlogPostDTO;
 import com.eaworld.blog.model.BlogPost;
 import com.eaworld.blog.repository.BlogPostRepository;
 
@@ -43,7 +45,12 @@ public class BlogPostService {
      * @param blogPost
      * @return the saved blog post
      */
-    public BlogPost createBlogPost(BlogPost blogPost) {
-		return blogPostRepository.save(blogPost);
+    public BlogPostDTO createBlogPost(BlogPostDTO blogPostDTO) {
+    	BlogPost blogPost = new BlogPost();
+    	BeanUtils.copyProperties(blogPostDTO, blogPost);
+    	BlogPost storedBlogPost = blogPostRepository.save(blogPost);
+    	BlogPostDTO storedDTO = new BlogPostDTO();
+    	BeanUtils.copyProperties(storedBlogPost, storedDTO);
+		return storedDTO;
 	}
 }
