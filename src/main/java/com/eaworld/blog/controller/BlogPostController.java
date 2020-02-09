@@ -68,7 +68,7 @@ public class BlogPostController {
 		return blogPostResponses;
 	}
 
-	@GetMapping
+	@GetMapping("/{id}/comments")
 	public List<CommentResponse> getComments(@PathVariable String blogId) {
 		List<CommentResponse> commentResponses = new ArrayList<CommentResponse>();
 		List<CommentDTO> commentDTOs = new ArrayList<CommentDTO>();
