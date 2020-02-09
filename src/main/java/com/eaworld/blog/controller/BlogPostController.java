@@ -15,7 +15,6 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.eaworld.blog.dto.BlogPostDTO;
 import com.eaworld.blog.dto.CommentDTO;
-import com.eaworld.blog.model.BlogPost;
 import com.eaworld.blog.model.Comment;
 import com.eaworld.blog.model.request.BlogPostRequest;
 import com.eaworld.blog.model.request.CommentRequest;
@@ -67,9 +66,9 @@ public class BlogPostController {
 
 	@GetMapping("/{id}/comments")
 	public List<CommentResponse> getComments(@PathVariable String blogId, @RequestBody CommentRequest commentRequest) {
-		List<CommentResponse> commentResponses = new ArrayList<CommentResponse>();
-		List<CommentDTO> commentDTOs = new ArrayList<CommentDTO>();
-		List<Comment> comments = commentService.getComments(Long.valueOf(blogId));
+		List<CommentResponse> commentResponses = new ArrayList<>();
+		List<CommentDTO> commentDTOs = new ArrayList<>();
+		List<CommentDTO> comments = commentService.getComments(Long.valueOf(blogId));
 		comments.stream().map((comment) -> {
 			CommentDTO commentDTO = new CommentDTO();
 			BeanUtils.copyProperties(comment, commentDTO);

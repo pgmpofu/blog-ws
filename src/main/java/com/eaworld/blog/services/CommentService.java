@@ -1,5 +1,6 @@
 package com.eaworld.blog.services;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
@@ -39,8 +40,18 @@ public class CommentService {
 	 * @param blogId - Get comments associated with the blogId
 	 * @return all comments for a blog post
 	 */
-	public List<Comment> getComments(Long blogId) {
-		return (List<Comment>) commentRepository.findAll();
+	public List<CommentDTO> getComments(Long blogId) {
+		List<Comment> comments= (List<Comment>) commentRepository.findAll();
+		List<CommentDTO> commentDTOs = new ArrayList<>();
+                comments.stream().map((comment) -> {
+                    CommentDTO commentDTO = new CommentDTO();
+                    BeanUtils.copyProperties(comment, commentDTO);
+                return commentDTO;
+            }).forEachOrdered((commentDTO) -> {
+                commentDTOs.add(commentDTO);
+            });
+		
+		return commentDTOs;
 	}
 
 	public CommentDTO createComment(CommentDTO commentDTO) {

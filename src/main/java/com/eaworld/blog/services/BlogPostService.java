@@ -55,7 +55,7 @@ public class BlogPostService {
 	
     /**
      *
-     * @param blogPost
+     * @param blogPostDTO - blog post data transfer object
      * @return the saved blog post
      */
     public BlogPostDTO createBlogPost(BlogPostDTO blogPostDTO) {
