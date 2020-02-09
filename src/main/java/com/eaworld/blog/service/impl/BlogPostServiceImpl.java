@@ -44,7 +44,7 @@ public class BlogPostServiceImpl implements BlogPostService {
 				blogPostDTOs.add(blogPostDTO);
 			});
 		} catch (Exception ex) {
-			throw new BlogPostServiceException();
+			throw new BlogPostServiceException(ex.getMessage(), ex.getCause());
 		}
 
 		return blogPostDTOs;
@@ -80,7 +80,23 @@ public class BlogPostServiceImpl implements BlogPostService {
 			BeanUtils.copyProperties(storedBlogPost, storedDTO);
 			return storedDTO;
 		} catch (Exception ex) {
-			throw new BlogPostServiceException();
+			throw new BlogPostServiceException(ex.getMessage(), ex.getCause());
+		}
+	}
+
+	/**
+	 * 
+	 */
+	public BlogPostDTO updateBlogPost(BlogPostDTO blogPostDTO) {
+		try {
+			BlogPost blogPost = new BlogPost();
+			BeanUtils.copyProperties(blogPostDTO, blogPost);
+			BlogPost storedBlogPost = blogPostRepository.save(blogPost);
+			BlogPostDTO storedDTO = new BlogPostDTO();
+			BeanUtils.copyProperties(storedBlogPost, storedDTO);
+			return storedDTO;
+		} catch (Exception ex) {
+			throw new BlogPostServiceException(ex.getMessage(), ex.getCause());
 		}
 	}
 }

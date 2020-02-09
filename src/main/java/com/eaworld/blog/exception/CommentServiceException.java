@@ -6,18 +6,17 @@ package com.eaworld.blog.exception;
  * @date 02/09/2020
  * Custom exception class for blog posts
  */
-public class AuthorServiceException extends RuntimeException{
-
-
-    /**
-	 * 
-	 */
-	private static final long serialVersionUID = 7140022372152051988L;
+public class CommentServiceException extends RuntimeException{
 
 	/**
+	 * 
+	 */
+	private static final long serialVersionUID = -924208722636243193L;
+
+    /**
      *
      */
-    public AuthorServiceException() {
+    public CommentServiceException() {
 		super();
 	}
 
@@ -28,7 +27,7 @@ public class AuthorServiceException extends RuntimeException{
      * @param enableSuppression
      * @param writableStackTrace
      */
-    public AuthorServiceException(String message, Throwable cause, boolean enableSuppression,
+    public CommentServiceException(String message, Throwable cause, boolean enableSuppression,
 			boolean writableStackTrace) {
 		super(message, cause, enableSuppression, writableStackTrace);
 	}
@@ -38,7 +37,7 @@ public class AuthorServiceException extends RuntimeException{
      * @param message
      * @param cause
      */
-    public AuthorServiceException(String message, Throwable cause) {
+    public CommentServiceException(String message, Throwable cause) {
 		super(message, cause);
 	}
 
@@ -46,7 +45,7 @@ public class AuthorServiceException extends RuntimeException{
      *
      * @param message
      */
-    public AuthorServiceException(String message) {
+    public CommentServiceException(String message) {
 		super(message);
 	}
 
@@ -54,7 +53,7 @@ public class AuthorServiceException extends RuntimeException{
      *
      * @param cause
      */
-    public AuthorServiceException(Throwable cause) {
+    public CommentServiceException(Throwable cause) {
 		super(cause);
 	}
 

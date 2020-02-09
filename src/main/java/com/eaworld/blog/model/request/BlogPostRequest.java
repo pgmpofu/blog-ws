@@ -1,6 +1,10 @@
 package com.eaworld.blog.model.request;
 
-import com.eaworld.blog.model.Author;
+import java.util.List;
+
+import javax.persistence.OneToMany;
+
+import com.eaworld.blog.model.Comment;
 
 /**
  *
@@ -14,7 +18,33 @@ public class BlogPostRequest {
 	private String id;
 	private String title;
 	private String blogContent;
-	private Author author;
+	private String authorFirstName;
+	private String authorLastName;
+	public String getAuthorFirstName() {
+		return authorFirstName;
+	}
+
+	public void setAuthorFirstName(String authorFirstName) {
+		this.authorFirstName = authorFirstName;
+	}
+
+	public String getAuthorLastName() {
+		return authorLastName;
+	}
+
+	public void setAuthorLastName(String authorLastName) {
+		this.authorLastName = authorLastName;
+	}
+
+	public List<Comment> getComments() {
+		return comments;
+	}
+
+	public void setComments(List<Comment> comments) {
+		this.comments = comments;
+	}
+
+	private List<Comment> comments;
 
 	public String getId() {
 		return id;
@@ -38,14 +68,6 @@ public class BlogPostRequest {
 
 	public void setBlogContent(String blogContent) {
 		this.blogContent = blogContent;
-	}
-
-	public Author getAuthor() {
-		return author;
-	}
-
-	public void setAuthor(Author author) {
-		this.author = author;
 	}
 
 }
