@@ -46,9 +46,9 @@ public class BlogPostService {
      * @param blogPostId - blog post that we are searching for
      * @return - Blog Post with the given id
      */
-    public Optional<BlogPostDTO> getBlogPost(Long blogPostId) {
-    	Optional<BlogPost> blogPost =  blogPostRepository.findById(blogPostId);
-    	Optional<BlogPostDTO> blogPostDTO = Optional.of(new BlogPostDTO());
+    public BlogPostDTO getBlogPost(Long blogPostId) {
+    	BlogPost blogPost =  blogPostRepository.findById(blogPostId).get();
+    	BlogPostDTO blogPostDTO = new BlogPostDTO();
     	BeanUtils.copyProperties(blogPost, blogPostDTO);
 		return blogPostDTO;
 	}

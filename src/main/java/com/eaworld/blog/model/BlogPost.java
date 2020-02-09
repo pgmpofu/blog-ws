@@ -1,11 +1,8 @@
 package com.eaworld.blog.model;
 
-import java.util.List;
-
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
-import javax.persistence.OneToMany;
 
 @Entity(name = "blogPosts")
 public class BlogPost {
@@ -17,8 +14,7 @@ public class BlogPost {
 	private String title;
 
 	private String blogContent;
-	@OneToMany
-	private List<Comment> comments;
+
 
 	public long getId() {
 		return id;
@@ -42,14 +38,6 @@ public class BlogPost {
 
 	public void setBlogContent(String blogContent) {
 		this.blogContent = blogContent;
-	}
-
-	public List<Comment> getComments() {
-		return comments;
-	}
-
-	public void setComments(List<Comment> comments) {
-		this.comments = comments;
 	}
 
 }
