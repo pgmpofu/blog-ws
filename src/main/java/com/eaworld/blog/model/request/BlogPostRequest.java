@@ -2,8 +2,6 @@ package com.eaworld.blog.model.request;
 
 import java.util.List;
 
-import javax.persistence.OneToMany;
-
 import com.eaworld.blog.model.Comment;
 
 /**
