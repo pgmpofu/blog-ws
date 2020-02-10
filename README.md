@@ -20,6 +20,7 @@ BlogWS is a Spring Boot application and can be run on your local machine as is o
     ` mvn spring-boot:run`
 - If you are running a standalone application without the plugin run the following command in the blog-ws directory:
     `./mvnw spring-boot:run`
+- You can also run the application directly from your IDE
     
 ## Run with Docker
 - See [here](https://hub.docker.com/r/pgmpofu/blog-ws) to download image if necessary
