@@ -2,9 +2,24 @@ i[![Build Status](https://travis-ci.com/pgmpofu/blog-ws.svg?branch=master)](http
 ![Docker Cloud Build Status](https://img.shields.io/docker/cloud/build/pgmpofu/blog-ws)
 # Game Review Blog
 
-A simple web service that allows a user to create game reviews for sharing with the online community.
+BlogWS is a simple web service that allows a user to create game reviews for sharing with the online community.
 
 
 # Development Environment
 
-BlogWS is a Spring Boot application and can be run on your local machine as is or using a Docker container
+BlogWS is a Spring Boot application and can be run on your local machine as is or using a Docker container.
+
+## Run on your local environment
+- Install JDK 8
+- Install Git
+- If you are using the Maven plugin run the following command in the blog-ws directory:
+    ` mvn spring-boot:run`
+- If you are running a standalone application without the plugin run the following command in the blog-ws directory:
+    `./mvnw spring-boot:run`
+    
+## Run with Docker
+Use the following command:
+``
+
+## Contribute to BlogWS
+We are so excited that you have decided to contribute to this project! Please create a pull request and one of our team members will review ypur changes.
