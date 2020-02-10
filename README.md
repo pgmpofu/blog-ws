@@ -7,7 +7,7 @@ BlogWS is a simple web service that allows a user to create game reviews for sha
 
 # Development Environment
 
-BlogWS is a Spring Boot application and can be run on your local machine as is or using a Docker container.
+BlogWS is a Spring Boot application and can be run on your local machine as is or using a Docker container. The application runs on port 8888.
 
 ## Run on your local environment
 - Install JDK 8
