@@ -4,6 +4,10 @@ i[![Build Status](https://travis-ci.com/pgmpofu/blog-ws.svg?branch=master)](http
 
 BlogWS is a simple web service that allows a user to create game reviews for sharing with the online community.
 
+#Assumptions
+- A comment cannot exist without a post.
+- A comment cannot be created at the same time as a post.
+
 
 # Development Environment
 
@@ -23,3 +27,4 @@ Use the following command:
 
 ## Contribute to BlogWS
 We are so excited that you have decided to contribute to this project! Please create a pull request and one of our team members will review ypur changes.
+
