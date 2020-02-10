@@ -47,7 +47,7 @@ public class BlogPostController {
      */
     @PostMapping("create")
     public BlogPostResponse createBlogPost(@RequestBody BlogPostRequest blogPostRequest) {
-        BlogPostResponse blogPostResponse = new BlogPostResponse();
+    	BlogPostResponse blogPostResponse = new BlogPostResponse();
         BlogPostDTO blogPostDTO = new BlogPostDTO();
         BeanUtils.copyProperties(blogPostRequest, blogPostDTO);
         BlogPostDTO createdDTO = blogPostService.createBlogPost(blogPostDTO);
@@ -63,7 +63,7 @@ public class BlogPostController {
      */
     @GetMapping("/{id}")
     public BlogPostResponse getBlogPostById(@PathVariable Long id) {
-        BlogPostResponse blogPostResponse = new BlogPostResponse();
+    	BlogPostResponse blogPostResponse = new BlogPostResponse();
         BlogPostDTO blogPostDTO = blogPostService.getBlogPost(id);
         BeanUtils.copyProperties(blogPostDTO, blogPostResponse);
         return blogPostResponse;
@@ -81,7 +81,7 @@ public class BlogPostController {
         List<BlogPostResponse> blogPostResponses = new ArrayList<>();
         List<BlogPostDTO> blogPostDTOs = blogPostService.getBlogPosts(page, limit);
         blogPostDTOs.stream().map((blogPostDTO) -> {
-            BlogPostResponse blogPostResponse = new BlogPostResponse();
+        	BlogPostResponse blogPostResponse = new BlogPostResponse();
             BeanUtils.copyProperties(blogPostDTO, blogPostResponse);
             return blogPostResponse;
         }).forEachOrdered((blogPostResponse) -> {
@@ -98,7 +98,7 @@ public class BlogPostController {
      */
     @PutMapping("/{blogPostId}/comments/create")
     public BlogPostResponse createComment(@PathVariable Long blogPostId, @RequestBody CommentRequest commentRequest) {
-        BlogPostResponse blogPostResponse = new BlogPostResponse();
+    	BlogPostResponse blogPostResponse = new BlogPostResponse();
         BlogPostDTO blogPostDTO = blogPostService.getBlogPost(blogPostId);
 
         CommentDTO commentDTO = new CommentDTO();
