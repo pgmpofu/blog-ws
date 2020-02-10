@@ -4,7 +4,7 @@ i[![Build Status](https://travis-ci.com/pgmpofu/blog-ws.svg?branch=master)](http
 
 BlogWS is a simple web service that allows a user to create game reviews for sharing with the online community.
 
-#Assumptions
+# Assumptions
 - A comment cannot exist without a post.
 - A comment cannot be created at the same time as a post.
 
@@ -20,7 +20,7 @@ BlogWS is a Spring Boot application and can be run on your local machine as is o
     ` mvn spring-boot:run`
 - If you are running a standalone application without the plugin run the following command in the blog-ws directory:
     `./mvnw spring-boot:run`
-- You can also run the application directly from your IDE
+- You can also run the application directly from your IDE using the BlogWSApplication class.
     
 ## Run with Docker
 - See [here](https://hub.docker.com/r/pgmpofu/blog-ws) to download image if necessary
@@ -28,5 +28,5 @@ BlogWS is a Spring Boot application and can be run on your local machine as is o
 `docker container run -p 8888:8888 pgmpofu/blog-ws:latest`
 
 ## Contribute to BlogWS
-We are so excited that you have decided to contribute to this project! Please create a pull request and one of our team members will review ypur changes.
+We are so excited that you have decided to contribute to this project! Please create a pull request and one of our team members will review your changes.
 
