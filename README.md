@@ -19,7 +19,7 @@ BlogWS is a Spring Boot application and can be run on your local machine as is o
     
 ## Run with Docker
 Use the following command:
-``
+`docker container run -p 8888:8888 pgmpofu/blog-ws:latest`
 
 ## Contribute to BlogWS
 We are so excited that you have decided to contribute to this project! Please create a pull request and one of our team members will review ypur changes.
